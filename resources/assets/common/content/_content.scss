@@ -1,0 +1,107 @@
+.content {
+
+  &::after {
+    @include gridle_clear_each( 2, left );
+  }
+  @include gridle_state( mobile ) {
+    @include gridle_grid( 12 );
+  }
+  @include gridle_grid ( 9 );
+
+  &__products {
+    @include gridle_grid ( 12 );
+    padding: 11px 0 0;
+    &__product {
+      @include gridle_state( mobile ) {
+        display: block;
+        @include gridle_grid( 12 );
+      }
+
+      a {
+        display: block;
+        max-width: 100%;
+        img {
+          max-width: 100%;
+        }
+      }
+      @include gridle_grid ( 3 );
+      padding-bottom: 20px;
+      position: relative;
+      border: 1px solid #eaeaea;
+
+      $product:"content__products__product";
+
+      &-buy-button {
+        background: none repeat scroll 0 0 #fe9820;
+        border-radius: 4px;
+        color: #ffffff;
+        cursor: pointer;
+        display: none;
+        font-size: 15px;
+        font-weight: 600;
+        height: 32px;
+        line-height: 30px;
+        margin:15px 17px 10px;
+        text-align: center;
+        width: 156px;
+
+        a {
+          text-decoration: none;
+          color:#fff;
+        }
+        @include gridle_state( mobile ) {
+          display: block;
+          font-size: 12px;
+          width: 135px;
+        }
+      }
+      &-image {
+        max-width:150px;
+        max-height:150px;
+        margin-left: 10px;
+      }
+      &-name {
+        box-sizing: border-box;
+        color: #161616;
+        display: block;
+        font-size: 12px;
+        margin: 0 auto;
+        padding: 15px 20px 0;
+        text-align: center;
+        text-decoration: none;
+        width: 180px;
+        @include gridle_state( mobile ) {
+          width: 150px;
+        }
+      }
+      &-price {
+        width: 100%;
+        text-align: center;
+        background: none repeat scroll 0 0 #f8f8f8;
+        @include gridle_state( tablet ) {
+          &:hover {
+            background: rgba(248, 248, 248, 0.5);
+            bottom: 30px;
+            height: auto;
+            line-height: 30px;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+          }
+        }
+        &:hover > .#{$product}-buy-button {
+          display: block;
+        }
+        .price_ua {
+          font-size: 18px;
+          font-weight: 600;
+          color: #ff8a00;
+        }
+        .price_usd {
+          font-size: 14px;
+          color: #777777;
+        }
+      }
+    }
+  }
+}

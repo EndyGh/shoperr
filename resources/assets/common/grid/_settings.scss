@@ -1,0 +1,47 @@
+@import "./../../../../node_modules/gridle/sass/gridle/gridle";
+
+// setting up the grid
+@include gridle_setup( (
+        context : 12,
+        gutter-width : 20px,
+        direction : ltr,
+  // etc...
+) );
+
+// make the use of media queries really easy
+@include gridle_register_state( mobile, (
+        max-width : 400px,
+) );
+
+@include gridle_register_state ( tablet-phones , (
+        max-width : 767px
+) ) ;
+
+@include gridle_register_state ( tablet , (
+        min-width : 401px,
+        max-width : 767px,
+        gutter-width : 30px
+) );
+
+// even with full custom queries :
+@include gridle_register_state ( landscape, (
+        query : "(orientation : landscape)"
+) );
+
+body {
+  min-height: 100%;
+  position: relative;
+}
+
+.wrap {
+  @include gridle( wrap );
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+.row {
+  @include gridle_row();
+}

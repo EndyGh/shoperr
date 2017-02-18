@@ -1,0 +1,122 @@
+@import "grid/settings";
+
+.product {
+  height: auto;
+
+  &__description {
+    @include gridle_grid ( 12 );
+    margin-top: 45px;
+  }
+
+  h1, h4 {
+    font-family: Helvetica Neue, Arial, sans-serif;
+    font-weight: normal;
+    margin: 0;
+  }
+  h1 {
+    font-size: 24pt;
+  }
+  h4 {
+    font-size: 16pt;
+    margin-top:8px;
+    color: #aaa;
+  }
+  &__header {
+    margin-bottom: 20px;
+  }
+
+  &__figure {
+    @include gridle_grid ( 6 );
+    float: left;
+   &__inner {
+     padding: 19px;
+     margin-bottom: 25px;
+     border: 2px solid #eaeaea;
+   }
+
+    .product__preview--all {
+      padding: 0 10px;
+      &-item {
+        @include gridle_grid ( 4 );
+        height: 100px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #eaeaea;
+        background-clip: border-box;
+        background-size: contain;
+        background: rgba(0, 0, 0, 0) none no-repeat scroll 50% 50%;
+        cursor: pointer;
+      }
+    }
+   /* img {
+      max-width: 500px;
+    } */
+
+
+  }
+
+  &__section {
+    @include gridle_grid ( 6 );
+    float: right;
+    padding-left: 25px;
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 150%;
+    color: #333;
+
+    &__details {
+      &-info {
+        border-bottom: 1px solid #dfdfdf;
+        color: #161616;
+        font-size: 13px;
+        line-height: 21px;
+        padding: 5px 0 15px;
+      }
+      &--header {
+        color: #8b8b8b;
+        font-size: 13px;
+      }
+    }
+
+    &--price {
+      position: relative;
+      margin-top: 15px;
+    }
+
+    &--btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: url("/img/bayButton.png") no-repeat scroll 0 0 #fb951c;
+      border-radius: 4px;
+      cursor: pointer;
+      height: 48px;
+      margin: 15px 0 0;
+      width: 156px;
+      span {
+        color: #ffffff;
+        font-weight: 600;
+        line-height: 47px;
+        padding: 0 0 0 80px;
+        text-transform: uppercase;
+      }
+    }
+
+  }
+
+  .price_ua{
+    color: #f68909;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .price_usd {
+    display: block;
+    color: #515151;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 5px 0 3px 1px;
+    white-space: nowrap;
+  }
+
+}

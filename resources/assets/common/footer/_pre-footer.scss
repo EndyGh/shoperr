@@ -1,0 +1,84 @@
+.pre-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -343px;
+  padding-left: 20px;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  background: #393939;
+  color: #fff;
+
+  &__payment {
+    @include gridle_state( mobile ) {
+      @include gridle_grid( 12 );
+    }
+    @include gridle_grid ( 4 );
+    &-methods {
+      padding-top: 20px;
+      &-item {
+        padding-left: 20px;
+        @include gridle_float( left );
+        @extend %reset-link-behaviour;
+      }
+      &-item:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+  &__info {
+    @include gridle_state( mobile ) {
+      @include gridle_grid( 12 );
+    }
+    @include gridle_grid ( 8 );
+    &-delivery {
+      @include gridle_state( mobile ) {
+        margin-top: 20px;
+        padding: 30px 0 0 12px;
+        @include gridle_grid( 12 );
+      }
+      @include gridle_grid ( 4 );
+      color: #b7b7b7;
+      font-size: 14px;
+      font-weight: bold;
+      min-height: 80px;
+      padding: 27px 0 0 38px;
+    }
+    &-contact {
+      @include gridle_state( mobile ) {
+        @include gridle_grid( 12 );
+      }
+      @include gridle_grid ( 4 );
+      color: #b7b7b7;
+      &-head {
+        color: #fff;
+      }
+      &-address {
+        font-size: 12px;
+        margin: 15px 0 5px;
+      }
+      &-phone {
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+    &-social {
+      @include gridle_state( mobile ) {
+        margin-top: 15px;
+        @include gridle_grid( 12 );
+      }
+      @include gridle_grid ( 4 );
+      &-head {
+        color: #fff;
+      }
+      &__links {
+        margin-top: 19px;
+        &-item {
+          @include gridle_float( left );
+          @extend %reset-link-behaviour;
+          margin: 0 5px 0 12px;
+        }
+      }
+    }
+  }
+}

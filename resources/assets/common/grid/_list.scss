@@ -1,0 +1,36 @@
+%list-item-link_default {
+  color: #2e2e2e;
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 43px;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+%list-item-link_hover {
+  background: #ff7800; //a:hover
+  color: #fff;
+}
+
+%reset-link-behaviour {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+
+%sidebar-item-link_default {
+  @extend %list-item-link_default;
+  color: #494949;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+%sidebar-item-link_hover {
+  @extend %list-item-link_hover;
+}
+
+%sidebar-sub-item {
+  @extend %list-item-link_default;
+  font-weight: bold;
+  line-height: 33px;
+}

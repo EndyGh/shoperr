@@ -1,0 +1,20 @@
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -390px;
+  @include gridle_state( mobile ) {
+   text-align: center;
+  }
+  background: #232323;
+  height: 47px;
+  &__copyright {
+    @include gridle_state( mobile ) {
+      float: none;
+    }
+    @include gridle_float ( left );
+    color: #979797;
+    font: 11px arial, sans-serif;
+    line-height: 45px;
+  }
+}

@@ -1,0 +1,136 @@
+.menu {
+  @include gridle_grid ( 12 );
+  @include gridle_clear( both );
+  margin: 0;
+
+  &__toggle-btn {
+
+    &--collapsed {
+      @include gridle_state( mobile ) {
+        display: block;
+      }
+      display: none;
+      position: relative;
+      float: right;
+      padding: 9px 10px;
+      margin-top: 8px;
+      margin-right: 15px;
+      margin-bottom: 8px;
+      background: transparent none;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 1px solid #ddd;
+      outline: none;
+
+      $gray:#888;
+      &:hover {
+        background: lighten($gray,25%);
+      }
+
+      &__icon-bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background-color: $gray;
+      }
+
+      &__icon-bar+&__icon-bar {
+        margin-top: 4px;
+      }
+
+      &__sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
+      }
+    }
+  }
+
+  &__list {
+    @include gridle_grid ( 9 );
+    @include gridle_state( mobile ) {
+      display: none;
+    }
+
+    &-item {
+      margin: 0 10px 0 15px;
+      float:left;
+
+
+
+      &:hover {
+        a {
+         @extend %list-item-link_hover;
+        }
+      }
+
+      a {
+        @extend %list-item-link_default;
+        display: block;
+      }
+      a:first-child {
+        padding-left: 8px;
+      }
+    }
+
+    li:first-child {
+      margin-left:0;
+    }
+  }
+
+  &__search {
+    margin: 9px 0 0;
+    @include gridle_grid ( 3 );
+
+    &-input {
+      outline: none;
+      border-radius: 15px;
+      border: medium none;
+      border-top: 1px solid #dedede;
+      box-sizing: border-box;
+      font: italic 11px Arial, sans-serif;
+      height: 28px;
+      padding: 5px 26px 4px 15px;
+      width: 222px;
+    }
+  }
+
+}
+
+.menu__collapsed {
+  display: none;
+  @include gridle_grid ( 12 );
+  @include gridle_state( mobile ) {
+    display: block;
+  }
+
+  &__list {
+    &-item {
+      width: 100%;
+      height: 45px;
+      margin-bottom: 3px;
+      padding-top: 20px;
+      display: block;
+      &--active {
+        background-color: #e7e7e7;
+      }
+
+      &:hover {
+        a {
+          color: #ff7800;
+        }
+      }
+
+      a {
+        padding: 20px 15px;
+        line-height: 20px;
+        color: #555;
+      }
+    }
+  }
+}
