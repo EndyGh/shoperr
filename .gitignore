@@ -3,8 +3,8 @@
 Homestead.json
 Homestead.yaml
 .env
-composer.lock
-vendor
-_ide_helper.php
-_ide_helper_models.php
-.phpstorm.meta.php
+/composer.lock
+/vendor
+/_ide_helper.php
+/_ide_helper_models.php
+/.phpstorm.meta.php
