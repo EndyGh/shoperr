@@ -35,8 +35,8 @@ class ProductController extends Controller
 
         $reviews = $product->reviews()
             ->with('user')
-            #->approved()
-          #  ->notSpam()
+            ->approved()
+            ->notSpam()
             ->orderBy('created_at','desc')
             ->get();
 

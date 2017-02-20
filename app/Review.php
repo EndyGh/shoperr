@@ -45,4 +45,9 @@ class Review extends Model
         return $date;
     }
 
+
+    public function getShortCommentAttribute()
+    {
+        return str_limit($this->comment,30);
+    }
 }

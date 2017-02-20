@@ -20,6 +20,9 @@ class CurrencyService
 
     public function getUSDRate($precision=2)
     {
+        if(Storage::has('currency.xml') != true)
+            $this->createCurrencyXml();
+
         $currencyXml = simplexml_load_file(storage_path('app/currency.xml'));
         foreach ($currencyXml->currency as $currency) {
             if(strcasecmp(trim($currency->cc),'USD') == 0) $this->usd = $currency->rate;

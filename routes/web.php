@@ -120,5 +120,9 @@ Route::group(['namespace' => 'Admin'], function()
 
        Route::post('property/store',"ProductController@propertyStore")->name('property.store');
 
+       Route::resource('reviews','ReviewController',['except' => [
+           'create', 'store', 'show',
+       ]]);
+
    });
 });
