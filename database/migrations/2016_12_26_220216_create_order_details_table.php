@@ -22,7 +22,7 @@ class CreateOrderDetailsTable extends Migration
             $table->string('email');
             $table->string('city');
             $table->string('phone');
-            $table->string('shipping-address');
+            $table->string('shipping_address');
             $table->timestamps();
         });
     }

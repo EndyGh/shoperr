@@ -72,12 +72,12 @@
                         <h2 class="border h1">Адрес доставки</h2>
                         <div class="row field-row">
                             <div class="col-xs-12">
-                                @if($errors->has('shipping-address'))
+                                @if($errors->has('shipping_address'))
                                     <label class="label-error">Введите адресс</label>
                                 @else
                                     <label>Адресс доставки</label>
                                 @endif
-                                <input class="le-input placeholder @if($errors->has('shipping-address')){{'field-has-error'}}@endif" data-placeholder="Адресс" name="shipping-address">
+                                <input class="le-input placeholder @if($errors->has('shipping_address')){{'field-has-error'}}@endif" data-placeholder="Адресс" name="shipping_address">
                             </div>
                         </div><!-- /.field-row -->
                     </section><!-- /#shipping-address -->

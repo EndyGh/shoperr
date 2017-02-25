@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->decimal('total',10,2);
+            $table->string('status')->default('В обработке');
             $table->timestamps();
         });
     }

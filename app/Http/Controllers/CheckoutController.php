@@ -24,7 +24,7 @@ class CheckoutController extends Controller
             'city' => 'required',
             'email' => 'required|email',
             'phone' => 'required|regex:/[0-9]{3}\s[0-9]{2}\s[0-9]{3}\s[0-9]{2}\s[0-9]{2}/',
-            'shipping-address' => 'required',
+            'shipping_address' => 'required',
         ]);
 
 
@@ -43,11 +43,12 @@ class CheckoutController extends Controller
 
         $detail = new Detail();
         $detail->fill($request->all());
-        $order->detail()->save($detail);
+        $order->details()->save($detail);
 
         foreach($cart as $item){
             $orderItem = new OrderItem();
             $orderItem->order_id=$order->id;
+            $orderItem->quantity = $item->qty;
             $orderItem->product_id=intval($item->id);
             $orderItem->save();
         }

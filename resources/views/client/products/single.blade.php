@@ -97,9 +97,7 @@
                 <ul class="nav nav-tabs simple">
                     <li class="active"><a href="#description" data-toggle="tab">Описание</a></li>
                     <li><a href="#additional-info" data-toggle="tab">Дополнительная информация</a></li>
-                    @can('customer-access')
                     <li><a href="#reviews" data-toggle="tab" aria-expanded="true">Отзывы ({{$reviews->count()}})</a></li>
-                    @endcan
                 </ul><!-- /.nav-tabs -->
 
                 <div class="tab-content">
@@ -159,7 +157,6 @@
                         </ul><!-- /.tabled-data -->
                     </div><!-- /.tab-pane #additional-info -->
 
-                    @can('customer-access')
                         <div class="tab-pane" id="reviews">
                         <div class="comments">
                             @foreach($reviews as $review)
@@ -205,6 +202,7 @@
                         </div><!-- /.comments -->
 
                             <div class="col-sm-8 col-xs-12">
+                                @can('customer-access')
                                 <div class="new-review-form">
                                     <h2>Оставить отзыв</h2>
                                     {{ Form::open(['route' => ['product.review.store',$product->id],'class'=>'contact-form', 'id'=>'contact-form', ]) }}
@@ -229,10 +227,13 @@
                                         </div><!-- /.buttons-holder -->
                                         {{Form::close()}}<!-- /.contact-form -->
                                 </div><!-- /.new-review-form -->
+                                    @else
+                                        <h2 style="text-transform: none;">Чтобы оставить свой отзыв
+                                            необходимо зарегистрироваться!</h2>
+                                    @endcan
                             </div><!-- /.col -->
                         </div><!-- /.add-review -->
                     </div>
-                    @endcan
                   </div>
                 </div><!-- /.tab-content -->
 

@@ -12,6 +12,7 @@ class CreateOrderItemsTable extends Migration
         {
             $table->increments('id');
             $table->integer('order_id');
+            $table->integer('quantity')->unsigned()->default(1);
             $table->integer('product_id');
             $table->timestamps();
         });

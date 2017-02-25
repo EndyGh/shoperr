@@ -16,8 +16,8 @@ class CreateReviewsTable extends Migration
             $table->integer('user_id')->nullable(false);
             $table->integer('rating')->nullable(false);
             $table->text('comment')->nullable(false);
-            $table->tinyInteger('approved')->unsigned()->default(1);
-            $table->tinyInteger('spam')->unsigned()->default(0);
+            $table->tinyInteger('approved')->unsigned()->default(0);
+            $table->tinyInteger('spam')->unsigned()->default(1);
             $table->timestamps();
         });
     }

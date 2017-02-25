@@ -124,5 +124,9 @@ Route::group(['namespace' => 'Admin'], function()
            'create', 'store', 'show',
        ]]);
 
+       Route::resource('orders','OrderController',['except' => [
+           'create', 'store', 'show',
+       ]]);
+
    });
 });

@@ -11,17 +11,22 @@ use App\OrderDetail;
 
 class Order extends Model
 {
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function orderItems()
+    /** Order Item relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function items()
     {
         return $this->hasMany(OrderItem::class);
     }
 
-    public function detail()
+    public function details()
     {
         return $this->hasOne(OrderDetail::class);
     }
