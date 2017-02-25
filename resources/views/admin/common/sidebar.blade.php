@@ -34,6 +34,32 @@
             <li><a href="{{route('index')}}"><i class="fa fa-link"></i> <span>Сайт</span></a></li>
             <li class="active"><a href="{{route('admin.index')}}"><i class="fa fa-tachometer"></i> <span>Админка</span></a></li>
             <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>Заказы</span>
+                    <span class="label label-success">{{$new_orders}}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('orders.index')}}">Редактировать</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-comments-o"></i>
+                    <span>Отзывы</span>
+                    <span class="label label-success">{{$new_reviews}}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('reviews.index')}}">Редактировать</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
                 <a href="#"><i class="fa fa-folder"></i> <span>Товары</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

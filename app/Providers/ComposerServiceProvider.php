@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Image;
 use App\Product;
+use App\Review;
 use App\User;
 use App\Category;
 use App\Order;
@@ -13,6 +14,7 @@ use Illuminate\Support\ServiceProvider;
 use \View as View;
 use \DB as DB;
 use \Route as Route;
+use Carbon\Carbon;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -68,6 +70,19 @@ class ComposerServiceProvider extends ServiceProvider
             // render it
             return $view->with('banners',$banners);
         });
+
+        View::creator('admin.common.sidebar', function ($view) {
+            $new_orders = Order::where('status', '!=', 'Завершен')
+                ->whereDate('created_at', Carbon::today()->toDateString())
+                ->count();
+
+            $new_reviews = Review::whereDate('created_at', Carbon::today()->toDateString())
+                ->count();
+
+            return $view->withNewOrders($new_orders)
+                    ->withNewReviews($new_reviews);
+        });
+
 
         // admin index page
         View::creator('admin.index', function($view) {
