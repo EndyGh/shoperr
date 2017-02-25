@@ -16,6 +16,8 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('url',255)->unique();
+            $table->boolean('banner')->default(0);
+            $table->string('for_page')->default('/');
             $table->timestamps();
         });
     }

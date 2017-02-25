@@ -18,7 +18,29 @@
                        <div class="col-lg-4 col-md-4 col-xs-6 thumb" data-id="{{$image->id}}">
                            <a class="thumbnail" href="#"> <img class="img-responsive" src="{{asset($image->url)}}" alt="preview"> </a>
                            <a href="delete/{{$image->id}}" hidden="hidden" class="thumbnail-destroy">del</a>
-                           <a href="#" class="destroy-image">Delete image <span style="text-decoration: underline">{{$image->url}}</span></a>
+                          <div class="form-group pull-left">
+                              <button class="btn btn-danger destroy-image">
+                                  <i class="fa fa-trash"></i>
+                                  <span>Удалить изображение</span>
+                              </button>
+                          </div>
+                           <div class="form-group pull-right">
+                               {!! Form::open(['route' => ['image.banner',$image->id]]) !!}
+                                   @if($image->isBanner())
+                                   <input type="hidden" name="banner" value="0">
+                                       <button type="submit" class="btn btn-warning">
+                                           <i class="fa fa-unlock"></i>
+                                           <span>Открепить банер</span>
+                                       </button>
+                                   @else
+                                    <input type="hidden" name="banner" value="1">
+                                       <button type="submit" class="btn btn-success">
+                                           <i class="fa fa-check"></i>
+                                           <span>Сделать банером</span>
+                                       </button>
+                                   @endif
+                               {!! Form::close() !!}
+                           </div>
                        </div>
                    @endforeach
                </div>

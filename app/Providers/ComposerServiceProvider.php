@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Image;
 use App\Product;
 use App\User;
 use App\Category;
@@ -11,6 +12,7 @@ use App\Slider;
 use Illuminate\Support\ServiceProvider;
 use \View as View;
 use \DB as DB;
+use \Route as Route;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -51,6 +53,20 @@ class ComposerServiceProvider extends ServiceProvider
         View::creator('client.products.random',function($view){
             $productsRandom = Product::inRandomOrder()->limit(4)->get();
             return $view->with('productsRandom',$productsRandom);
+        });
+
+        // banners
+        View::creator('client.banners.banner',function($view){
+
+            $uri = Route::current()->uri(); // current uri
+
+            // get banners for current page
+            $banners = Image::where('banner',true)
+                ->where('for_page',$uri)
+                ->get();
+
+            // render it
+            return $view->with('banners',$banners);
         });
 
         // admin index page

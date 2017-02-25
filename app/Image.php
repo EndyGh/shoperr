@@ -14,4 +14,9 @@ class Image extends Model
     {
         return $this->belongsToMany(Product::class)->withTimestamps();
     }
+
+    public function isBanner()
+    {
+        return $this->banner;
+    }
 }

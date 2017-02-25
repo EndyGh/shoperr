@@ -64,4 +64,18 @@ class ImageController extends Controller
         flash()->overlay('Record was deleted successfully!', 'Success');
         return redirect()->route('image.edit');
     }
+
+    public function makeBanner(Request $request,$id)
+    {
+        $image = Image::findOrFail($id);
+        $image->banner = intval($request->get('banner',0));
+        $image->for_page = $request->get('for_page','/');
+        $image->save();
+
+        flash()
+            ->overlay('Баннер обновлен','Успешное действие');
+
+        return redirect()
+            ->back();
+    }
 }

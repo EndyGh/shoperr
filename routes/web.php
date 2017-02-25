@@ -95,6 +95,7 @@ Route::group(['namespace' => 'Admin'], function()
 
        Route::get('image',"ImageController@index")->name('image.index');
        Route::post('image/create',"ImageController@create")->name('image.create');
+       Route::post('image/banner/{id}',"ImageController@makeBanner")->name('image.banner');
        Route::get('image/edit',"ImageController@edit")->name('image.edit');
        Route::get('image/delete/{id}',"ImageController@delete")->name('image.delete');
 
